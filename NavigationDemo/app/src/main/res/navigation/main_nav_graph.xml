@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph.xml"
+    app:startDestination="@id/homeFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.pan.navigationdemo.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_frag" />
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.pan.navigationdemo.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/list_frag">
+
+        <!--
+            转场动画 值得注意的是
+            findNavController().navigate(R.id.action_listFragment_to_list2Fragment)
+            id 指的是action id 而非 目的地fragment的id
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+        -->
+        <action
+            android:id="@+id/action_listFragment_to_list2Fragment"
+            app:destination="@id/list2Fragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_close_exit">
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/list2Fragment"
+        android:name="com.pan.navigationdemo.List2Fragment"
+        android:label="List2Fragment">
+        <!--   具体参考 https://developer.android.google.cn/guide/navigation/navigation-pass-data?hl=zh-cn#Safe-args-->
+        <argument
+            android:name="testArgs"
+            android:defaultValue="hello pp."
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.pan.navigationdemo.MineFragment"
+        android:label="MineFragment"
+        tools:layout="@layout/mine_frag">
+
+        <action
+            android:id="@+id/action_mineFragment_to_mine2Fragment"
+            app:destination="@id/mine2Fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mine2Fragment"
+        android:name="com.pan.navigationdemo.Mine2Fragment"
+        android:label="Mine2Fragment"/>
+
+    <deepLink
+        android:id="@+id/deepLink"
+        app:uri="www.pan.com/test" />
+
+
+</navigation>

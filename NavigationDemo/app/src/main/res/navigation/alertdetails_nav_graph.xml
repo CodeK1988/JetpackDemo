@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/alertdetails_nav_graph.xml"
+    app:startDestination="@id/alertDetailsActivity"
+    tools:ignore="UnusedNavigation">
+    <activity
+        android:id="@+id/alertDetailsActivity"
+        android:name="com.pan.navigationdemo.AlertDetailsActivity"
+        android:label="AlertDetailsActivity">
+        <argument
+            android:name="textView"
+            android:defaultValue="hello pp."
+            app:argType="string" />
+    </activity>
+</navigation>
